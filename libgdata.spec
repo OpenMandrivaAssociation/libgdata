@@ -4,7 +4,7 @@
 
 Name:           libgdata
 Version:        0.2.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Library for the GData protocol
 
 Group:          System/Libraries
@@ -46,6 +46,7 @@ the common Google services, and has full asynchronous support.
 Summary:        Development files for %{name}
 Group:          Development/C
 Requires:       %{libname} = %{version}-%{release}
+Provides:	%name-devel = %version-%release
 
 %description -n %develname
 The %{name}-devel package contains libraries and header files for
