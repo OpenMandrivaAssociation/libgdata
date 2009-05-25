@@ -14,6 +14,7 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  libsoup-devel 
+BuildRequires:  dbus-glib-devel
 BuildRequires:  gtk-doc
 BuildRequires:  intltool
 
