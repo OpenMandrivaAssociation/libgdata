@@ -1,10 +1,10 @@
-%define major 3
+%define major 4
 %define libname %mklibname gdata %major
 %define develname %mklibname -d gdata
 
 Name:           libgdata
-Version:        0.2.0
-Release:        %mkrel 2
+Version:        0.3.0
+Release:        %mkrel 1
 Summary:        Library for the GData protocol
 
 Group:          System/Libraries
@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %check
 # Only the general test can be run without network access
 cd gdata/tests
-./general
+LD_LIBRARY_PATH=../.libs/ ./general
 
 %if %mdvver < 200900
 %post -n %libname -p /sbin/ldconfig
