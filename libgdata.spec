@@ -1,9 +1,9 @@
-%define major 4
+%define major 5
 %define libname %mklibname gdata %major
 %define develname %mklibname -d gdata
 
 Name:           libgdata
-Version:        0.3.0
+Version:        0.4.0
 Release:        %mkrel 1
 Summary:        Library for the GData protocol
 
