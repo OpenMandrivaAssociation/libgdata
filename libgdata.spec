@@ -1,9 +1,9 @@
-%define major 6
+%define major 7
 %define libname %mklibname gdata %major
 %define develname %mklibname -d gdata
 
 Name:           libgdata
-Version:        0.5.1
+Version:        0.6.0
 Release:        %mkrel 1
 Summary:        Library for the GData protocol
 
@@ -15,6 +15,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  libsoup-devel 
 BuildRequires:  dbus-glib-devel
+BuildRequires:  gobject-introspection-devel gir-repository
 BuildRequires:  gtk-doc
 BuildRequires:  intltool
 
@@ -82,8 +83,9 @@ LD_LIBRARY_PATH=../.libs/ ./general
 
 %files -n %libname
 %defattr(-,root,root,-)
-%doc COPYING.LIB NEWS README AUTHORS
+%doc NEWS README AUTHORS
 %{_libdir}/libgdata.so.%{major}*
+%_libdir/girepository-1.0/GData-0.0.typelib
 
 %files -n %develname
 %defattr(-,root,root,-)
@@ -92,4 +94,4 @@ LD_LIBRARY_PATH=../.libs/ ./general
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 %{_datadir}/gtk-doc/html/gdata/
-
+%_datadir/gir-1.0/GData-0.0.gir
