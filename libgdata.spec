@@ -4,7 +4,7 @@
 
 Name:           libgdata
 Version:        0.6.4
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Library for the GData protocol
 
 Group:          System/Libraries
@@ -15,7 +15,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires:  libsoup-devel 
 BuildRequires:  dbus-glib-devel
-BuildRequires:  gobject-introspection-devel gir-repository
+BuildRequires:  gobject-introspection-devel
 BuildRequires:  gtk-doc
 BuildRequires:  intltool
 
