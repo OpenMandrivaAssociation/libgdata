@@ -3,8 +3,8 @@
 %define develname %mklibname -d gdata
 
 Name:           libgdata
-Version:        0.6.4
-Release:        %mkrel 5
+Version:        0.6.5
+Release:        %mkrel 1
 Summary:        Library for the GData protocol
 
 Group:          System/Libraries
