@@ -1,4 +1,4 @@
-%define major 7
+%define major 13
 %define libname %mklibname gdata %major
 %define develname %mklibname -d gdata
 %define girname %mklibname gdata-gir 0.0
@@ -12,11 +12,14 @@ License:	LGPLv2+
 URL:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
-BuildRequires:  gtk-doc
-BuildRequires:  intltool
-BuildRequires:  pkgconfig(libsoup-2.4)
-BuildRequires:  pkgconfig(dbus-glib-1)
-BuildRequires:  pkgconfig(gobject-introspection-1.0)
+BuildRequires:	gtk-doc
+BuildRequires:	intltool
+BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(oauth) >= 0.9.4
 
 %description
 libgdata is a GLib-based library for accessing online service APIs using the
