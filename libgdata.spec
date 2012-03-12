@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(oauth) >= 0.9.4
+BuildRequires:	gnome-common
 
 %description
 libgdata is a GLib-based library for accessing online service APIs using the
