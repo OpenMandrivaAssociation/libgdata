@@ -4,7 +4,7 @@
 %define girname %mklibname gdata-gir 0.0
 
 Name:		libgdata
-Version:	0.10.1
+Version:	0.10.2
 Release:	1
 Summary:	Library for the GData protocol
 Group:		System/Libraries
