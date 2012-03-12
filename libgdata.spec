@@ -11,6 +11,7 @@ Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Patch0: libgdata-0.10.2-fix-linking.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
@@ -61,6 +62,9 @@ This package contains libraries and header files for %{name}.
 
 %prep
 %setup -q
+%apply_patches
+
+autoreconf -fi
 
 %build
 %configure2_5x \
