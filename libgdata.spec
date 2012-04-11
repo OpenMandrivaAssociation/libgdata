@@ -3,16 +3,17 @@
 %define develname %mklibname -d gdata
 %define girname %mklibname gdata-gir 0.0
 
+Summary:	Library for the GData protocol
 Name:		libgdata
 Version:	0.10.2
-Release:	1
-Summary:	Library for the GData protocol
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 Patch0: libgdata-0.10.2-fix-linking.patch
 
+BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(libsoup-2.4)
@@ -21,7 +22,6 @@ BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(oauth) >= 0.9.4
-BuildRequires:	gnome-common
 
 %description
 libgdata is a GLib-based library for accessing online service APIs using the
