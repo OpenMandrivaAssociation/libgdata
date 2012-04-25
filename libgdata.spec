@@ -1,17 +1,19 @@
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
 %define major 13
-%define libname %mklibname gdata %major
+%define gir_major 0.0
+%define libname %mklibname gdata %{major}
 %define develname %mklibname -d gdata
-%define girname %mklibname gdata-gir 0.0
+%define girname %mklibname gdata-gir %{gir_major}
 
 Summary:	Library for the GData protocol
 Name:		libgdata
-Version:	0.10.2
-Release:	2
+Version:	0.12.0
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://live.gnome.org/libgdata
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
-Patch0: libgdata-0.10.2-fix-linking.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -47,7 +49,6 @@ This package contains the dynamic libraries from %{name}.
 %package -n %{girname}
 Group:		System/Libraries
 Summary:	GObject Introspection interface library for %{name}
-Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface library for %{name}.
@@ -65,8 +66,6 @@ This package contains libraries and header files for %{name}.
 %setup -q
 %apply_patches
 
-autoreconf -fi
-
 %build
 %configure2_5x \
 	--disable-static
@@ -74,7 +73,6 @@ autoreconf -fi
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 %find_lang gdata
 
@@ -88,7 +86,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/libgdata.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/GData-0.0.typelib
+%{_libdir}/girepository-1.0/GData-%{gir_major}.typelib
 
 %files -n %{develname}
 %{_includedir}/*
