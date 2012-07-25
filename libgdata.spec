@@ -9,12 +9,15 @@
 Summary:	Library for the GData protocol
 Name:		libgdata
 Version:	0.12.0
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	LGPLv2+
 URL:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
-
+Patch0:         libgdata-0.13.0-CVE-2012-1177.diff
+BuildRequires:  autoconf automake libtool
+BuildRequires:  rootcerts
+Requires:       rootcerts
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
@@ -64,11 +67,14 @@ This package contains libraries and header files for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+#apply_patches
+%patch0 -p0 -b .CVE-2012-1177
 
 %build
+autoreconf -fi
 %configure2_5x \
-	--disable-static
+    --disable-static \
+    --with-ca-certs=/etc/pki/tls/certs/ca-bundle.crt
 
 %make
 
@@ -94,4 +100,3 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/pkgconfig/%{name}.pc
 %{_datadir}/gtk-doc/html/gdata/
 %{_datadir}/gir-1.0/GData-0.0.gir
-
