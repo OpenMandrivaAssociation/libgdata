@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define major	13
 %define api	0.0
+%define major	13
 %define libname %mklibname gdata %{major}
 %define devname %mklibname -d gdata
 %define girname %mklibname gdata-gir %{api}
@@ -16,16 +16,16 @@ Url:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
 Patch0:         libgdata-0.13.0-CVE-2012-1177.diff
 
-BuildRequires:  libtool
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
+BuildRequires:  libtool
 BuildRequires:  rootcerts
 BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(gcr-base-3)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
-BuildRequires:	pkgconfig(gcr-base-3)
-BuildRequires:	pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(oauth) >= 0.9.4
 Requires:       rootcerts
@@ -76,8 +76,8 @@ This package contains libraries and header files for %{name}.
 
 %build
 %configure2_5x \
-    --disable-static \
-    --with-ca-certs=/etc/pki/tls/certs/ca-bundle.crt
+	--disable-static \
+	--with-ca-certs=/etc/pki/tls/certs/ca-bundle.crt
 
 %make
 
@@ -88,13 +88,13 @@ This package contains libraries and header files for %{name}.
 %files i18n -f gdata.lang
 
 %files -n %{libname}
-%doc NEWS README AUTHORS
 %{_libdir}/libgdata.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GData-%{api}.typelib
 
 %files -n %{devname}
+%doc NEWS README AUTHORS
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}.pc
