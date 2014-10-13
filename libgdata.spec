@@ -1,25 +1,25 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define api	0.0
-%define major	13
+%define major	19
 %define libname %mklibname gdata %{major}
 %define devname %mklibname -d gdata
 %define girname %mklibname gdata-gir %{api}
 
 Summary:	Library for the GData protocol
 Name:		libgdata
-Version:	0.13.3
-Release:	7
+Version:	0.16.0
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:         libgdata-0.13.0-CVE-2012-1177.diff
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:  libtool
 BuildRequires:  rootcerts
+BuildRequires:	uhttpmock-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gcr-base-3)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
@@ -71,11 +71,10 @@ This package contains libraries and header files for %{name}.
 
 %prep
 %setup -q
-#apply_patches
-%patch0 -p0 -b .CVE-2012-1177
+%apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-ca-certs=/etc/pki/tls/certs/ca-bundle.crt
 
