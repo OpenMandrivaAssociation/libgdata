@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libgdata-0.16.0.tar.xz: 983a73c0c548cd60451f2dc0aedb32c2476b5780
+sources:
+  libgdata-0.17.4.tar.xz: b7d01ce415d98a4413023559500566f2640d105b
