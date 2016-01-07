@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 %define api	0.0
-%define major	19
+%define major	22
 %define libname %mklibname gdata %{major}
 %define devname %mklibname -d gdata
 %define girname %mklibname gdata-gir %{api}
