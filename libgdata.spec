@@ -8,8 +8,8 @@
 
 Summary:	Library for the GData protocol
 Name:		libgdata
-Version:	0.17.4
-Release:	4
+Version:	0.17.9
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/libgdata
