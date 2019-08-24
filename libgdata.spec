@@ -8,24 +8,31 @@
 
 Summary:	Library for the GData protocol
 Name:		libgdata
-Version:	0.17.9
-Release:	2
+Version:	0.17.11
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	gettext-devel
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:  libtool
 BuildRequires:  rootcerts
+BuildRequires:	meson
+BuildRequires:	vala
 BuildRequires:	uhttpmock-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gcr-base-3)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gio-2.0) >= 2.17.3
+BuildRequires:	pkgconfig(glib-2.0) >= 2.19.0
 BuildRequires:	pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(oauth) >= 0.9.4
@@ -71,33 +78,31 @@ Provides:	%{name}-devel = %{version}-%{release}
 This package contains libraries and header files for %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
-%configure \
-	--disable-static \
-	--with-ca-certs=/etc/pki/tls/certs/ca-bundle.crt
-
-%make
+%meson -Dinstalled_tests=false
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
+
 %find_lang gdata
 
 %files i18n -f gdata.lang
 
 %files -n %{libname}
-%{_libdir}/libgdata.so.%{major}*
-
-%files -n %{girname}
-%{_libdir}/girepository-1.0/GData-%{api}.typelib
+%{_libdir}/%{name}.so.%{major}{,.*}
 
 %files -n %{devname}
-%doc NEWS README AUTHORS
+%doc %{_datadir}/gtk-doc/html/gdata/
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/gtk-doc/html/gdata/
 %{_datadir}/gir-1.0/GData-%{api}.gir
+%{_datadir}/vala/vapi/*.deps
+%{_datadir}/vala/vapi/*.vapi
+
+%files -n %{girname}
+%{_libdir}/girepository-1.0/GData-%{api}.typelib
 
