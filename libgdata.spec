@@ -8,7 +8,7 @@
 
 Summary:	Library for the GData protocol
 Name:		libgdata
-Version:	0.17.12
+Version:	0.17.13
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
@@ -95,7 +95,7 @@ This package contains libraries and header files for %{name}.
 %{_libdir}/%{name}.so.%{major}{,.*}
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/gdata/
+#doc #{_datadir}/gtk-doc/html/gdata/
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}.pc
