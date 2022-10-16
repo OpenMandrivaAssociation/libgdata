@@ -9,11 +9,14 @@
 Summary:	Library for the GData protocol
 Name:		libgdata
 Version:	0.18.1
-Release:	5
+Release:	6
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://live.gnome.org/libgdata
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
+# https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/47
+# Build against gcr 4
+Patch0:         47.patch
 
 BuildRequires:	gettext-devel
 BuildRequires:	gtk-doc
@@ -24,7 +27,7 @@ BuildRequires:	meson
 BuildRequires:	vala
 BuildRequires:	uhttpmock-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gcr-base-3)
+BuildRequires:	pkgconfig(gcr-4)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.17.3
 BuildRequires:	pkgconfig(glib-2.0) >= 2.19.0
