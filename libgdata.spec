@@ -9,11 +9,11 @@
 Summary:	Library for the GData protocol
 Name:		libgdata
 Version:	0.18.1
-Release:	9
+Release:	10
 Group:		System/Libraries
 License:	LGPLv2+
-Url:		http://live.gnome.org/libgdata
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://live.gnome.org/libgdata
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/libgdata/%{url_ver}/%{name}-%{version}.tar.xz
 # https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/47
 # Build against gcr 4
 Patch0:         47.patch
