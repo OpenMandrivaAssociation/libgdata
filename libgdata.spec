@@ -25,7 +25,8 @@ BuildRequires:  libtool
 BuildRequires:  rootcerts
 BuildRequires:	meson
 BuildRequires:	vala
-BuildRequires:	uhttpmock-devel
+# Needed only for test, so lets disable it until upstrem pick up support for new uhttpmock
+#BuildRequires:	uhttpmock-devel
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gcr-4)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
@@ -84,7 +85,7 @@ This package contains libraries and header files for %{name}.
 %autosetup -p1
 
 %build
-%meson -Dinstalled_tests=false
+%meson -Dinstalled_tests=false -Dalways_build_tests=false
 %meson_build
 
 %install
