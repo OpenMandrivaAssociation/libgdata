@@ -9,7 +9,7 @@
 Summary:	Library for the GData protocol
 Name:		libgdata
 Version:	0.18.1
-Release:	16
+Release:	17
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		https://live.gnome.org/libgdata
@@ -36,7 +36,7 @@ BuildRequires:	pkgconfig(goa-1.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	pkgconfig(oauth) >= 0.9.4
